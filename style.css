@@ -7,7 +7,7 @@
 .main-container {
     display: grid;
     width: 100vw;
-    height: 56vw;
+    height: 56.9vw;
     padding: 1.7vw 3vw;
     grid-template-columns: 8fr 3fr;
     grid-template-rows: 14fr 2fr;
@@ -25,5 +25,40 @@
 }
 
 .control{
+    display: flex;
+    justify-content: end;
     background-color: yellow;
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: space-between;
+}
+.button-outer{
+    display: flex;
+    width: 1.5em;
+    height: 1.5em;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+}
+.button{
+    display: flex;
+    width: 1em;
+    height: 1em;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.button:hover{
+    background-color: brown;
+}
+
+.button-inner{
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    background-color: blue;
 }
