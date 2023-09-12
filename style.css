@@ -10,7 +10,7 @@
     height: 56.9vw;
     padding: 1.7vw 3vw;
     grid-template-columns: 8fr 3fr;
-    grid-template-rows: 14fr 2fr;
+    grid-template-rows: 7fr 1fr;
     row-gap: 2.9vw;
     background-color: red;
 }
@@ -27,7 +27,7 @@
 .control{
     display: flex;
     justify-content: end;
-    background-color: yellow;
+    background-color:gray;
 }
 
 .buttons-container{
@@ -37,10 +37,10 @@
 .button-outer{
     display: flex;
     width: 1.5em;
-    height: 1.5em;
+    height: 2em;
     align-items: center;
     justify-content: center;
-    background-color: aqua;
+    background-color:gray;
 }
 .button{
     display: flex;
@@ -49,16 +49,17 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: red;
-}
-
-.button:hover{
-    background-color: brown;
+    background-color:cornflowerblue;
 }
 
 .button-inner{
+    display: none;
     width: 70%;
     height: 70%;
     border-radius: 50%;
-    background-color: blue;
+    background-color: gray;
+}
+
+.button-outer:hover .button {
+    background-color: white;
 }
