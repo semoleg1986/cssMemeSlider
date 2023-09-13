@@ -3,21 +3,27 @@
     margin: 0;
     padding: 0;
 }
-
+body{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: red;
+}
 .main-container {
     display: grid;
-    width: 100vw;
-    height: 56.9vw;
-    padding: 1.7vw 3vw;
+    width: 80%;
+    /* height: 56.9vw; */
+    padding: 1.7% 3%;
     grid-template-columns: 8fr 3fr;
     grid-template-rows: 7fr 1fr;
-    row-gap: 2.9vw;
+    row-gap: 2.9%;
     background-color: red;
 }
 
-.img-slider{
+.img-slider {
     grid-column: 1/3;
     background-color: blue;
+    /* overflow: hidden; */
 }
 
 .text-slider{
@@ -62,6 +68,20 @@
 
 .button-outer:hover .button {
     background-color: white;
+}
+
+
+.images-container {
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+img {
+    aspect-ratio: 16/9;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
 
