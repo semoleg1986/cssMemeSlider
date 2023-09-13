@@ -1,6 +1,9 @@
 let imagesList = [];
+let titleList = [];
 let step = 0;
+let step2 = 0;
 let offset = 0;
+let offset2 = 0;
 let isAnimating = false; 
 
 function draw() {
@@ -17,12 +20,28 @@ function draw() {
     offset = 1;
 }
 
+function text() {
+    let txt = document.createElement('p');
+    txt.textContent = titleList[step2];
+    txt.classList.add('txt');
+    document.querySelector('.text-slider').appendChild(txt);
+    if (step2 >= imagesList.length) {
+        step2 = 0;
+    } else {
+        step2++;
+    }
+    offset2 = 1;
+}
+
+let carouselTexts = document.querySelector('.txt')
 let carouselImages = document.querySelectorAll('.image');
 carouselImages.forEach((image, index) => {
+    titleList.push(image.alt);
     imagesList.push(image.src);
     carouselImages[index].remove();
 });
-
+carouselTexts.remove();
+text();
 draw();draw();draw();draw();
 let newImages = document.querySelectorAll('.image');
 const buttonOuterElements = document.querySelectorAll('.button-outer');
@@ -32,6 +51,7 @@ firstButtonInner.style.display = 'block';
 
 buttonOuterElements.forEach((buttonOuter, index) => {
     buttonOuter.addEventListener('click', () => {
+        document.querySelector('.text-slider').innerHTML = '';
         buttonOuterElements.forEach((button, i) => {
             const buttonInner = button.querySelector('.button-inner');
             if (i === index) {
@@ -45,5 +65,8 @@ buttonOuterElements.forEach((buttonOuter, index) => {
         newImages.forEach(image => {
             image.style.transform = `translateX(${position}%)`;
         });
+        step2 = index;
+        offset2 = 0;
+        text();
     });
 });
