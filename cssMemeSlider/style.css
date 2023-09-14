@@ -65,6 +65,9 @@ body{
     background-color: white;
 }
 
+.button-outer:active .button {
+    background-color: lightgray;
+}
 
 .images-container {
     overflow-x: hidden;
