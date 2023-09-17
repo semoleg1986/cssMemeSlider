@@ -12,18 +12,21 @@ body{
 .main-container {
     display: grid;
     width: 90%;
-    /* height: 56.9vw; */
     padding: 1.7% 3%;
     grid-template-columns: 8fr 3fr;
-    grid-template-rows: 7fr 1fr;
+    grid-template-rows: 5fr 1fr;
     row-gap: 2.9%;
-    /* background-color:#484848; */
-
 }
 
 .img-slider {
+    display: flex;
     grid-column: 1/3;
     overflow: hidden;
+}
+
+.text-slider .txt{
+    display: none;
+    opacity: 0;
 }
 
 .control{
@@ -32,30 +35,31 @@ body{
     align-items:flex-start;
 }
 
-.buttons-container{
+.buttons-container {
     display: flex;
     justify-content: space-between;
 }
-.button-outer{
+
+.button-outer {
     display: flex;
     width: 1.5em;
     height: 2em;
-    align-items:center;
+    align-items: center;
     justify-content: center;
     cursor: pointer;
-    /* background-color:#484848; */
 }
-.button{
+
+.button {
     display: flex;
     width: 1em;
     height: 1em;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color:cornflowerblue;
+    background-color: cornflowerblue;
 }
 
-.button-inner{
+.button-inner {
     display: none;
     width: 70%;
     height: 70%;
@@ -67,22 +71,56 @@ body{
     background-color: white;
 }
 
-.button-outer:active .button {
-    background-color: white;
+input[type="radio"]{
+    display: none;
 }
 
 .images-container {
-    overflow-x: hidden;
     white-space: nowrap;
+    transition: transform 0.5s ease; 
 }
 
-img {
+.image {
     aspect-ratio: 16/9;
     width: 100%;
+    margin-right: 2%;
     height: auto;
     object-fit: cover;
     transition: transform 1s ease;
 }
+
+input#slide1:checked ~ .img-slider .image{
+    transform: translateX(0);
+}
+
+input#slide2:checked ~ .img-slider .image {
+    transform: translateX(-102%);
+}
+
+input#slide3:checked ~ .img-slider .image {
+    transform: translateX(-204%);
+}
+
+input#slide4:checked ~ .img-slider .image {
+    transform: translateX(-306%);
+}
+
+input#slide1:checked ~ .text-slider #txt1,
+input#slide2:checked ~ .text-slider #txt2,
+input#slide3:checked ~ .text-slider #txt3,
+input#slide4:checked ~ .text-slider #txt4{
+    display: block;
+    opacity: 1;
+}
+
+
+input#slide1:checked ~ .control label[for="slide1"] .button-inner,
+input#slide2:checked ~ .control label[for="slide2"] .button-inner,
+input#slide3:checked ~ .control label[for="slide3"] .button-inner,
+input#slide4:checked ~ .control label[for="slide4"] .button-inner {
+    display: block;
+}
+
 @keyframes fade-in {
     0% {
         opacity: 0;
@@ -92,6 +130,7 @@ img {
     }
 }
 .txt{
+    
     font-size: 1.5em;
     color: white;
     animation: fade-in 1s ease-in;
@@ -101,7 +140,7 @@ img {
     .main-container {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 7fr 1fr 3fr;
+        grid-template-rows: 6fr 1fr 2fr;
     }
 
     .text-slider{
