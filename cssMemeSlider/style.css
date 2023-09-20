@@ -71,6 +71,10 @@ body{
     background-color: white;
 }
 
+.button-outer:active .button {
+    background-color: yellow;
+}
+
 input[type="radio"]{
     display: none;
 }
